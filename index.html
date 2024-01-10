@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html ng-app="LibraryApp">
+    <head>
+        <title>Library Book Genres</title>
+        <script
+        src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+    </head>
+    <body>
+        <div ng-controller="GenreController as genreCtrl">
+            <h2>Select Book Genre</h2>
+            <select ng-model="genreCtrl.selectGenre">
+                <option value="Fiction">Fictional</option>
+                <option value="comics">comics</option>
+                <option value="Crime">Crime</option>
+                <option value="Horror">Horror</option>
+            </select>
+        
+        <div ng-switch="genreCtrl.selectGenre">
+            <div ng-switch-when="Fiction">
+                <h3>Fiction</h3>
+                <p>Here in this fiction section, you will explore the imaginary and unusual
+                     fictioanl experiencs with extra-ordinary stories</p>
+            </div>
+            <div ng-switch-when="comics">
+                <h3>comics</h3>
+                <p>Here in this comics section, you will experience the ultimate super heroes and humans with super 
+                    abilities of marveland DC</p>
+            </div>
+            <div ng-switch-when="Crime">
+                <h3>Crime</h3>
+                <p>Here in this crime section of books, you will come to know about the real time killers and the mistery 
+                    behind the cases that are unsolved
+                </p>
+            </div>
+            <div ng-switch-when="Horror">
+                <h3>Horror</h3>
+                <p>Here in this horror section, you will find new super natural spirits that 
+                    has a belief of ghosting humans for a long
+                </p>
+            </div>
+            <div ng-switch-default>
+                <h3>Select a Genre</h3>
+                <p>Please select a book genre to continue</p>
+            </div>
+        </div>
+    </div>
+        <script>
+            angular.module('LibraryApp',[])
+            .controller('GenreController',function(){
+                var genreCtrl=this;
+                genreCtrl.selectedGenre="";
+            })
+        </script>
+    </body>
+</html>
